@@ -1,0 +1,5 @@
+// типы экшенов
+
+export const FETCH_BOOKS_START = 'FETCH_BOOKS_START';
+export const FETCH_BOOKS_SUCCESS = 'FETCH_BOOKS_SUCCESS';
+export const FETCH_BOOKS_FAIL = 'FETCH_BOOKS_FAIL';

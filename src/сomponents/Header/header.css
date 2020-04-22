@@ -10,17 +10,12 @@
 	color: white;
 	font-size: 1.5rem;
 }
-.mini-cart-link:before{
-	content: "\f07a";
-	display: block;
-	font-family: "Forkawesome";
-	color: white;
+.mini-cart-link{
+    color: white;
 }
 .nav {
-    /*  ширна произвольная, не стесняйтесь экспериментировать */
     width: 320px;
     min-width: 320px;
-    /* фиксируем и выставляем высоту панели на максимум */
     height: 100%;
     position: fixed;
     top: 58px;

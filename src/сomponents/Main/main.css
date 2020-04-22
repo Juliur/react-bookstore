@@ -1,0 +1,28 @@
+.main{
+	margin-top: 60px;
+}
+.btn-primary{
+	border: 0;
+}
+.btn-primary:hover{
+	background-color: #0AB3A3;
+}
+.card{
+	border-radius: 0;
+	border: 0;
+	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
+}
+.btn-secondary{
+	width: 140px;
+	height: 40px;
+	color: #333;
+	border-color: grey;
+	background-color: transparent;
+	border-radius: 0;
+	font-size: .8rem;
+}
+.btn-secondary:hover{
+	background-color: #0AB3A3;
+	border-color: #0AB3A3;
+	color: white;
+}
