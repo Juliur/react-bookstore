@@ -1,6 +1,3 @@
-.main{
-	margin-top: 60px;
-}
 .btn-primary{
 	border: 0;
 }
@@ -11,6 +8,9 @@
 	border-radius: 0;
 	border: 0;
 	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
+}
+.card-img-top{
+	height: 60%;
 }
 .btn-secondary{
 	width: 140px;
