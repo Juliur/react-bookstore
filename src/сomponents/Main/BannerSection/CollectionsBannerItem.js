@@ -1,5 +1,6 @@
 import React  from 'react';
 import Jumbotron from 'react-bootstrap/Jumbotron';
+import {Link} from 'react-router-dom';
 
 const CollectionsBannerItem = ({title, backgroundImg}) =>{
   return(
@@ -7,7 +8,7 @@ const CollectionsBannerItem = ({title, backgroundImg}) =>{
       <Jumbotron className="banner" style={{backgroundImage: 'url(http://' + backgroundImg + ')'}}>
         <div className="d-flex flex-column banner-inner-wrap">
           <h1 className="display-4 text-uppercase text-right banner-title">{title}</h1>
-          <a className="btn banner-btn text-uppercase" href="#" role="button">Learn more</a>
+          <Link to='/collections' className="btn banner-btn text-uppercase" href="#" role="button">Learn more</Link>
         </div>      
       </Jumbotron>
     </div>
