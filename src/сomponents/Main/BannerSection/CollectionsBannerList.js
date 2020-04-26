@@ -4,7 +4,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import CollectionsBannerItem from './CollectionsBannerItem';
 
-const CollectionsBannerList = ({collections, collectionId}) =>{
+const CollectionsBannerList = ({collections, collectionId, title}) =>{
   return(
     <Container>
       <Row>
@@ -12,11 +12,12 @@ const CollectionsBannerList = ({collections, collectionId}) =>{
           {
           collections
             .filter(item => item.id === collectionId)
-            .map(({id, name, images}) => 
+            .map(({id, images}) => 
               <CollectionsBannerItem
                 key = {id}
-                title={name.en}
+                title={title}
                 backgroundImg={images[0].url}
+                collectionId={collectionId}
               />)
           }
         </Col>

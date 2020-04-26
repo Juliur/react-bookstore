@@ -1,8 +1,10 @@
 import React, {Component}  from 'react';
+import {Link} from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Navbar from './Navbar.js';
+
 import './header.css';
 
 class Header extends Component {
@@ -22,7 +24,7 @@ class Header extends Component {
 
 					<Col lg={2}>
 						<div className="brand">
-							<a href="#">BookStore</a>
+							<Link to="/home">BookStore</Link>
 						</div>
 					</Col>
 

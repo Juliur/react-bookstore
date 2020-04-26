@@ -8,3 +8,13 @@ body{
 .main-color{
 	background-color: #2B8687;
 }
+
+.hidden { 
+	display:none; 
+}
+
+/* [id='nav-toggle']:checked  #main>#category-page{
+  -webkit-transform: translateX(320px);
+  -moz-transform: translateX(320px);
+  transform: translateX(320px);
+} */

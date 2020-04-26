@@ -1,16 +1,18 @@
 import React, {Component}  from 'react';
+import {Link} from 'react-router-dom';
+import './navbar.css';
 
 class Navbar extends Component{
 	render(){
 		return(
-			<nav className="nav">
+			<nav id="nav">
 				<ul>
-					<li><a href="#1">Thrillers</a></li>
-					<li><a href="#2">Fantasy</a></li>
-					<li><a href="#3">Children's books</a></li>
-					<li><a href="#3">Classics</a></li>
-					<li><a href="#3">Young adult</a></li>
-					<li><a href="#3">Fiction</a></li>
+					<li><Link to="/category/thrillers">Thrillers</Link></li>
+					<li><Link to="/category/fantasy">Fantasy</Link></li>
+					<li><Link to="/category/childrens book">Children's books</Link></li>
+					<li><Link to="/category/classics">Classics</Link></li>
+					<li><Link to="/category/young adult">Young adult</Link></li>
+					<li><Link to="/category/fiction">Fiction</Link></li>
 				</ul>
 			</nav>
 		)

@@ -10,94 +10,11 @@
 	color: white;
 	font-size: 1.5rem;
 }
+.brand>a:hover{
+    text-decoration: none;
+    color: white;
+}
 .mini-cart-link{
     color: white;
 }
-.nav {
-    width: 320px;
-    min-width: 320px;
-    height: 100%;
-    position: fixed;
-    top: 58px;
-    bottom: 0;
-    margin: 0;
-    /* сдвигаем (прячем) панель относительно левого края страницы */
-    left: -320px;
-    /* внутренние отступы */
-    padding: 15px 20px;
-    /* плавный переход смещения панели */
-    -webkit-transition: left 0.3s;
-    -moz-transition: left 0.3s;
-    transition: left 0.3s;
-    /* определяем цвет фона панели */
-    /* поверх других элементов */
-    z-index: 2000;
-    background-color: black;
-}
- 
-/**
- * Кнопка переключения панели
- * тег <label>
- */
- 
-.nav-toggle {
-    position: absolute;
-    padding: 0.5rem;
-    width: 150px;
-    background: white;
-    cursor: pointer;
-    font-size: .9rem;
-    line-height: 1;
-    /* всегда поверх других элементов страницы */
-    z-index: 2001;
-    /* анимируем цвет текста при наведении */
-    -webkit-transition: color .25s ease-in-out;
-    -moz-transition: color .25s ease-in-out;
-    transition: color .25s ease-in-out;
-}
 
-.nav-toggle:before {
-    content: '\2630';
-    text-decoration: none;
- }
- 
- 
-/**
- * Скрытый чекбокс (флажок)
- * невидим и недоступен :)
- * имя селектора атрибут флажка
- */
- 
-[id='nav-toggle'] {
-    position: absolute;
-    display: none;
-}
- 
-/**
- * изменение положения переключателя 
- * при просмотре на мобильных устройствах
- * когда навигация раскрыта, распологаем внутри панели
-*/
- 
-/**
- * Когда флажок установлен, открывается панель
- * используем псевдокласс:checked
- */
- 
-[id='nav-toggle']:checked ~ .nav {
-    left: 0;
-    overflow-y: auto;
-}
- 
-/* 
- * смещение контента страницы
- * на размер ширины панели,
- * фишка необязательная, на любителя
-*/
- 
-[id='nav-toggle']:checked ~ main > article {
-    -webkit-transform: translateX(320px);
-    -moz-transform: translateX(320px);
-    transform: translateX(320px);
-}
-   

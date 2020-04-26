@@ -1,7 +1,6 @@
 import React from 'react';
 import CollectionsBanner from './BannerSection/CollectionsBanner.js';
-import Bestsellers from './Bestellers.js';
-import AllBooks from './AllBooks.js';
+import BooksList from '../../common/BooksList.js';
 
 const HomePage = ({collections, books, getCollectionId}) =>{
   return(
@@ -10,14 +9,11 @@ const HomePage = ({collections, books, getCollectionId}) =>{
 					getCollectionId={getCollectionId}
 					collections={collections}
 				/>
-				<Bestsellers
-					getCollectionId={getCollectionId}
+				<BooksList
+          title={"bestsellers"}
 					collections={collections}
           books={books}
           quantity={4}
-				/>
-				<AllBooks
-					books={books}
 				/>
     </div>
   )

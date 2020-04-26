@@ -9,8 +9,9 @@ class CollectionsBanner extends Component {
 		return(
 			<section className="pt-5">
 				<CollectionsBannerList
+					title={"the best books of 2019"}
 					collections = {collections}
-					collectionId={getCollectionId(collections, "The Best Books of 2019")}
+					collectionId={getCollectionId(collections, "the best books of 2019")}
 				/>
 			</section>
 		)
