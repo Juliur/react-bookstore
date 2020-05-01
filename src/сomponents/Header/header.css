@@ -17,4 +17,6 @@
 .mini-cart-link{
     color: white;
 }
-
+.mini-cart-link:hover{
+	color: white;
+}

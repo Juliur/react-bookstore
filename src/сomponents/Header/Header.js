@@ -31,9 +31,9 @@ class Header extends Component {
 					</Col>
 
 					<Col lg={5}>
-						<div className="mini-cart d-inline-block">
+						<div className="mini-cart d-inline-flex h-100 align-items-center">
 							<Link to="/cart" className="mini-cart-link">
-								<i className="fa fa-shopping-cart" aria-hidden="true"></i>
+								<i className="fa fa-lg fa-shopping-cart" aria-hidden="true"></i>
 							</Link>
 							<span>{cart.length ? cart.length : "" }</span>
 						</div>

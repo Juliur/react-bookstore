@@ -13,7 +13,9 @@ const initialState = {
 const booksInCart = (state = initialState.booksInCart, {type, payload}) => {
   switch(type){
     case ADD_BOOK_TO_CART: 
-      if(state.indexOf(payload.id) !== -1) return state;
+      for(let i=0; i<state.length; i++){
+        if(state[i]['id'] === payload['id']) return state
+      }
       return[...state, payload]
     case REMOVE_BOOK_FROM_CART:
       return state.filter(book => book['id'] !== payload);
@@ -31,14 +33,13 @@ const addedBooksQuantity = (state = initialState.addedBooksQuantity, {type, payl
       }
     case REMOVE_BOOK_FROM_CART:
       // debugger
-      return {
-        ...state,
-       state: Object.keys(state).reduce((obj, key)=>{
-         if(key !== payload){
-           obj[key] = {...state[key]}
-         }
-       }, {})
-      } 
+      let result = Object.keys(state).reduce((obj, key)=>{
+        if(key !== payload){
+          obj[key] = state[key]
+        }
+        return obj
+      }, {})
+      return result;
     case INCREMENT_BOOK_QUANTITY: 
       return {
         ...state,

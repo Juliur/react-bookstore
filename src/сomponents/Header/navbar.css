@@ -42,10 +42,13 @@
 .nav-toggle::before {
   content: '\2630';
   text-decoration: none;
+  margin-right: 5px;
 }
 .nav-toggle::after{
   content: '\274C';
   text-decoration: none;
+  color: white;
+  opacity: .7;
 }
 [id='nav-toggle'] ~ .nav-toggle::after {
   display: none;
@@ -70,6 +73,7 @@
   left: 265px;
   width: auto;
   top: 10px;
+  background-color: transparent;
 }
 
 [id='nav-toggle']:checked ~ .nav-toggle>span{

@@ -18,7 +18,7 @@ class BooksList extends Component {
 	render(){
 		const {books, collectionId, quantity, shouldHide, title } = this.props;
 		return(
-			<section>
+			<section className="pt-3">
 				<Container>
 					<h3 className="text-capitalize">{title}</h3>
 					<Row>
@@ -33,7 +33,8 @@ class BooksList extends Component {
 							.map(({id, name, images, pricing, stock})=>
 								<Col md={3}
 										key={id}
-										className="p-2">
+										// className="pr-1"
+									>
 									<BookItem
 										id={id}
 										title={name.en}

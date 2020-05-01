@@ -9,6 +9,7 @@
 }
 .banner.jumbotron{
   background-color: transparent;
+  margin-bottom: 0;
 }
 .banner-title{
   color: white;
