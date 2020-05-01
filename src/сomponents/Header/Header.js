@@ -1,4 +1,5 @@
 import React, {Component}  from 'react';
+import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -9,6 +10,7 @@ import './header.css';
 
 class Header extends Component {
 	render() {
+		const {cart} = this.props;
 		return (
 			<Container fluid className="header-container main-color py-2" fixed="top">
 				<Row>
@@ -30,9 +32,10 @@ class Header extends Component {
 
 					<Col lg={5}>
 						<div className="mini-cart d-inline-block">
-							<a href="#" className="mini-cart-link">
+							<Link to="/cart" className="mini-cart-link">
 								<i className="fa fa-shopping-cart" aria-hidden="true"></i>
-							</a>
+							</Link>
+							<span>{cart.length ? cart.length : "" }</span>
 						</div>
 					</Col>
 				</Row>
@@ -41,5 +44,9 @@ class Header extends Component {
 	}
 }
 
-
-export default Header
+const mapStateToProps = (state)=>{
+	return{
+		cart: state.cart
+	}
+}
+export default connect(mapStateToProps)(Header)

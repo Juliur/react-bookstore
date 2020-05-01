@@ -1,40 +1,66 @@
 import axios from "axios";
-import {FETCH_BOOKS_START,
-        FETCH_BOOKS_SUCCESS,
-        FETCH_BOOKS_FAIL,
-        FETCH_COLLECTIONS_START,
-        FETCH_COLLECTIONS_SUCCESS,
-        FETCH_COLLECTIONS_FAIL,
- } from './actionTypes.js';
+import * as types from './actionTypes.js';
 /*
  * генераторы экшенов
  */
 
 export const fetchBooks = () => async dispatch => {
-    dispatch({type: FETCH_BOOKS_START});
+    dispatch({type: types.FETCH_BOOKS_START});
     
     try{
 			const response = await axios("http://localhost:8000/v1/products");
-				const books = response.data.items;
+			const books = response.data.items;
         dispatch({
-            type: FETCH_BOOKS_SUCCESS, payload: books
+          type: types.FETCH_BOOKS_SUCCESS, payload: books
         });
        
     }catch (err){
-        dispatch( {type:FETCH_BOOKS_FAIL, payload: err})
+      dispatch( {type: types.FETCH_BOOKS_FAIL, payload: err})
     }
-}
+};
 
 export const fetchCollections = () => async dispatch => {
-    dispatch({type: FETCH_COLLECTIONS_START});
+    dispatch({type: types.FETCH_COLLECTIONS_START});
 
     try{
 			const responseCollections = await axios.get("http://localhost:8000/v1/collections");
 			const collections = responseCollections.data.items;
 			dispatch({
-				type: FETCH_COLLECTIONS_SUCCESS, payload: collections
+				type: types.FETCH_COLLECTIONS_SUCCESS, payload: collections
 			});
     }catch (err){
-			dispatch( {type:FETCH_COLLECTIONS_FAIL, payload: err})
+			dispatch( {type: types.FETCH_COLLECTIONS_FAIL, payload: err})
 		}
+};
+
+const addBookToCart = book => ({
+	type: types.ADD_BOOK_TO_CART,
+	payload: book,
+})
+
+export const addToCart = book => (dispatch, getState) => {
+  if (getState().books.booksMap[book.id].stock > 0) {
+    dispatch(addBookToCart(book))
+  }
 }
+
+export const removeBookFromCart = id => dispatch => {
+	dispatch({
+		type: types.REMOVE_BOOK_FROM_CART,
+		payload: id,
+	})
+};
+
+export const incrementBookQuantity = id => dispatch => {
+	dispatch({
+		type: types.INCREMENT_BOOK_QUANTITY,
+		payload: id,
+	})
+};
+
+export const decrementBookQuantity = id => dispatch => {
+	dispatch({
+		type: types.DECREMENT_BOOK_QUANTITY,
+		payload: id,
+	})
+};

@@ -1,18 +1,13 @@
 import React, {Component}  from 'react';
 import {connect} from 'react-redux';
 import {Route, Switch} from 'react-router-dom';
-import {fetchBooks, fetchCollections} from '../../actions/index.js';
-import './main.css';
 import HomePage from './HomePage.js';
 import CategoryPage from './CategoryPage.js';
+import CartPage from '../CartPage/CartPage.js';
+import './main.css';
 
 
 class Main extends Component{
-	
-	componentDidMount() {
-		this.props.fetchBooks();
-		this.props.fetchCollections();
-	}
 
 	getCollectionId(arr, search){
 		let collectionId;
@@ -51,6 +46,7 @@ class Main extends Component{
 																			collections={collections} 
 																			title={props.match.params.title}
 																			getCollectionId={this.getCollectionId} />}/>
+					<Route path="/cart" component={CartPage}/>
 				</Switch>
 			</main>
 		)
@@ -63,9 +59,4 @@ const mapStateToProprs = (state) => {
 	}
 }
 
-const mapDispatchToProps = {
-	fetchBooks,
-	fetchCollections,
-}
-
-export default connect(mapStateToProprs, mapDispatchToProps)(Main)
+export default connect(mapStateToProprs)(Main)

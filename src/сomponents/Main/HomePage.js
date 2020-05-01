@@ -15,6 +15,10 @@ const HomePage = ({collections, books, getCollectionId}) =>{
           books={books}
           quantity={4}
 				/>
+        <BooksList
+          title={"all books"}
+          books={books}
+        />
     </div>
   )
 }

@@ -8,9 +8,18 @@ import thunk from 'redux-thunk';
 import rootReducer from './reducers/rootReducer.js';
 import App from './App';
 import ScrollToTop from './common/ScrollToTop.js';
+import {fetchBooks, fetchCollections} from './actions/index.js';
+import {loadState, saveState} from './localStorage/localStorage.js';
 
-const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
+const persistedState = loadState('cart');
 
+const store = createStore(rootReducer, {cart: persistedState}, composeWithDevTools(applyMiddleware(thunk)));
+store.subscribe(() => {
+  saveState('cart', store.getState().cart);
+});
+
+store.dispatch(fetchBooks());
+store.dispatch(fetchCollections());
 
 ReactDOM.render(
   <React.StrictMode>

@@ -1,6 +1,6 @@
 import {FETCH_COLLECTIONS_SUCCESS} from '../actions/actionTypes.js';
 
-const collectionsData = (state=[], {type, payload}) =>{
+export default (state = [], {type, payload}) =>{
 	switch(type){
 		case FETCH_COLLECTIONS_SUCCESS: 
 			return [
@@ -11,5 +11,3 @@ const collectionsData = (state=[], {type, payload}) =>{
 			return state
 	}
 }
-
-export default collectionsData
