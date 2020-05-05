@@ -10,33 +10,46 @@ import './cartPage.css';
 
 class CartPage extends Component{
 
-  render(){
-    const {booksInCart, totalPrice} = this.props;
-    return(
-      <Container>
-        <h3 className="text-capitalize">Cart</h3>
+  renderCartPage() {
+    const {booksInCart, totalPrice} = this.props; 
+
+    if(booksInCart.length > 0){
+      return(
         <Row>
           <Col md={8}>
-            {
-              booksInCart.map(({author, id, image, price, quantity, title, availableQuantity}) =>
-                <CartItem
-                  key={id}
-                  id={id}
-                  title={title}
-                  image={image}
-									price={price}
-									author={author}
-                  availableQuantity={availableQuantity}
-                  quantity={quantity}
-                />
-              )
-            }
+            {booksInCart.map(({id, name, pricing, images, quantity}) =>
+            <CartItem
+              key={id}
+              id={id}
+              title={name.en}
+              image={images[0].url}
+              price={pricing.retail}
+              author={name.pt}
+              quantity={quantity}
+            />)
+          }
           </Col>
           <Col md={4}>
             <CartTotal
               totalPrice={totalPrice}/>
           </Col>
         </Row>
+      )
+    }else{
+      return(
+        <div className="d-flex flex-column">
+          <div className="empty-cart-img m-auto"></div>
+          <h4>Your cart is currently empty</h4>
+        </div>
+      )
+    } 
+  }
+
+  render(){
+    return(
+      <Container>
+        <h3 className="text-capitalize py-3">Cart</h3>
+        {this.renderCartPage()}
       </Container>
     )
   }
@@ -44,8 +57,9 @@ class CartPage extends Component{
 
 const mapStateToProps = (state) =>{
   return{
-    booksInCart: getCartBooks(state.cart),
-    totalPrice: getTotalPrice(state.cart)
+    booksInCart: getCartBooks(state),
+    totalPrice: getTotalPrice(state),
+  
   }
 }
 

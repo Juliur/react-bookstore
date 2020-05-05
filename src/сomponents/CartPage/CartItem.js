@@ -11,23 +11,26 @@ class CartItem extends Component{
     const {
       id, 
       title, 
-      price, 
       image, 
+      price,
       author, 
+      stock,
       availableQuantity, 
       quantity,
       removeBookFromCart, 
       incrementBookQuantity,
-      decrementBookQuantity} = this.props;
+      decrementBookQuantity
+    } = this.props;
 
-      return(
-      <div className="cart-item mb-3 shadow">
+    return(
+      <div className="cart-item mb-3 custom-shadow">
         <Row className="no-gutters">
           <Col md={2} className="d-flex flex-column">
             <Image src={'http://'+ image} fluid>
             </Image>
           </Col>
           <Col md={3}>
+            <h5>Name</h5>
             <p>{title}</p>
             <p>{author}</p> 
           </Col>

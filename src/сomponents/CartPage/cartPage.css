@@ -10,3 +10,14 @@
 .quantity-input{
   width: 50px;
 }
+
+.empty-cart-img{
+  background-image: url('/dribbble.jpg');
+  width: 550px;
+  height: 400px;
+  background-size: cover;
+}
+.empty-cart-img+h4{
+  margin-top: -50px;
+  text-align: center;
+}

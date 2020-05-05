@@ -33,16 +33,12 @@ export const fetchCollections = () => async dispatch => {
 		}
 };
 
-const addBookToCart = book => ({
-	type: types.ADD_BOOK_TO_CART,
-	payload: book,
-})
-
-export const addToCart = book => (dispatch, getState) => {
-  if (getState().books.booksMap[book.id].stock > 0) {
-    dispatch(addBookToCart(book))
-  }
-}
+export const addToCart = id => dispatch => {
+	dispatch({
+		type: types.ADD_BOOK_TO_CART,
+		payload: id,
+	})
+};
 
 export const removeBookFromCart = id => dispatch => {
 	dispatch({

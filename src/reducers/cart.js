@@ -10,29 +10,51 @@ const initialState = {
   addedBooksQuantity: {},
 }
   
+// const booksInCart = (state = initialState.booksInCart, {type, payload}) => {
+//   switch(type){
+//     case ADD_BOOK_TO_CART: 
+//       for(let i=0; i<state.length; i++){
+//         if(state[i]['id'] === payload['id']) return state
+//       }
+//       return[
+//         ...state,
+//         payload
+//         // payload['stock'] = payload['stock']-1
+//       ]
+//     case REMOVE_BOOK_FROM_CART:
+//       return state.filter(book => book['id'] !== payload);
+
+//     default:
+//       return state
+//   }
+// }
+
 const booksInCart = (state = initialState.booksInCart, {type, payload}) => {
   switch(type){
     case ADD_BOOK_TO_CART: 
       for(let i=0; i<state.length; i++){
-        if(state[i]['id'] === payload['id']) return state
+        if(state[i] === payload) return state
       }
-      return[...state, payload]
+      return[
+        ...state,
+        payload
+      ]
     case REMOVE_BOOK_FROM_CART:
-      return state.filter(book => book['id'] !== payload);
+      return state.filter(id => id !== payload);
     default:
       return state
-  }
+    }
 }
 
+  
 const addedBooksQuantity = (state = initialState.addedBooksQuantity, {type, payload}) => {
   switch (type) {
     case ADD_BOOK_TO_CART:
       return { 
         ...state,
-        [payload.id]: (state[payload.id] || 0) + 1
+        [payload]: (state[payload] || 0) + 1
       }
     case REMOVE_BOOK_FROM_CART:
-      // debugger
       let result = Object.keys(state).reduce((obj, key)=>{
         if(key !== payload){
           obj[key] = state[key]
@@ -55,10 +77,11 @@ const addedBooksQuantity = (state = initialState.addedBooksQuantity, {type, payl
   }
 }
 
-// export const getBooksInCart = state => state.booksInCart;
 
-// export const getBooksQuantity = (state, id) =>
-//   state.addedBooksQuantity[id] || 0
+export const getBooksInCart = state => state.booksInCart;
+
+export const getBooksQuantity = (state, id) =>
+  state.addedBooksQuantity[id] || 0
 
 const cart = (state = initialState, {type, payload}) =>{
   switch (type) {

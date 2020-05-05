@@ -14,12 +14,13 @@ import {loadState, saveState} from './localStorage/localStorage.js';
 const persistedState = loadState('cart');
 
 const store = createStore(rootReducer, {cart: persistedState}, composeWithDevTools(applyMiddleware(thunk)));
+store.dispatch(fetchBooks());
+store.dispatch(fetchCollections());
+
 store.subscribe(() => {
   saveState('cart', store.getState().cart);
 });
 
-store.dispatch(fetchBooks());
-store.dispatch(fetchCollections());
 
 ReactDOM.render(
   <React.StrictMode>

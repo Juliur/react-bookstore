@@ -19,4 +19,13 @@
 }
 .mini-cart-link:hover{
 	color: white;
+	text-decoration: none;
+}
+.mini-cart-link .cart-amount{
+	width: 40px;
+	background-color: rgb(0, 102, 103);
+	color: white;
+	text-align: center;
+	border-radius: 3px;
+	font-weight: bold;
 }

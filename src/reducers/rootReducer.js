@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux';
-import books from './books.js';
+import books, * as fromBooks from './books.js';
 import collections from './collections.js';
 import cart, * as fromCart from './cart.js';
 
@@ -11,32 +11,35 @@ const rootReducer = combineReducers({
 
 export default rootReducer
 
-// const getBooksQuantity = (state, id) => fromCart.getBooksQuantity(state, id);
-// const getBooksInCart = state => fromCart.getBooksInCart(state);
+const getBooksInCart = state => fromCart.getBooksInCart(state)
+const getBooksQuantity = (state, id) => fromCart.getBooksQuantity(state, id)
+const getBook = (state, id) => fromBooks.getBook(state, id)
 
 export const getCartBooks = state => {
-	// debugger
-	let res = state['booksInCart'].map(book => ({
-		...book,
-		quantity: state['addedBooksQuantity'][book.id]
-	}));
-	return res
-};
-
-// export const getTotalPrice = (state) =>({
-// 	let res = getCartBooks(state).reduce((total, book)=>
-// 	total + book.quantity * book.price, 0)
-// })
+	if(Object.keys(state.books).length == 0) return [];
+	let arr = getBooksInCart(state.cart);
+	let result = arr.map(id => ({
+    ...getBook(state.books, id),
+    quantity: getBooksQuantity(state.cart, id)
+	}))
+	return result
+}
+	// let res = state['booksInCart'].map(book => ({
+	// 	...book,
+	// 	quantity: state['addedBooksQuantity'][book.id]
+	// }));
+	// return res
+// };
 
 export const getTotalPrice = function (state){
 	let res = getCartBooks(state).reduce((total, book)=>
-	total + book.quantity * book.price, 0);
+	total + book.quantity * book['pricing']['retail'], 0);
 	return res
 }
 
-
-	// let res = state.booksInCart;
-	// return res;
-	// state.booksInCart.reduce((total, book)=>({
-	// total + book.quantity*book.price, 0)})
+export const getTotalBooksAmount = function(state){
+	let res = Object.values(state.addedBooksQuantity).reduce((total, current)=>
+	total +current, 0);
+	return res;
+}
 

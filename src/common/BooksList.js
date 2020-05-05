@@ -5,7 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import BookItem from './BookItem.js';
-import {getVisibleBooks} from '../reducers/books.js';
+import {getBooksArray} from '../reducers/books';
 
 class BooksList extends Component {
 
@@ -33,7 +33,7 @@ class BooksList extends Component {
 							.map(({id, name, images, pricing, stock})=>
 								<Col md={3}
 										key={id}
-										// className="pr-1"
+										className="mb-4"
 									>
 									<BookItem
 										id={id}
@@ -41,12 +41,17 @@ class BooksList extends Component {
 										image={images[0].url}
 										price={pricing.retail}
 										author={name.pt}
-										availableQuantity={stock}
+										stock={stock}
 									/>		
 								</Col>	
 							)
 						}
-						<Link to={`/category/${title}`} className={shouldHide ? 'hidden' : ''}>See all</Link>
+						<div className="link-to-all d-flex justify-content-center w-100 pt-5">
+							<Link to={`/category/${title}`} className={shouldHide ? 'hidden' : ''}>
+								See all
+								<i className="fa fa-lg fa-angle-right" aria-hidden="true"></i>
+							</Link>
+						</div>
 				</Row>
 			</Container>
 		</section>
@@ -54,8 +59,10 @@ class BooksList extends Component {
 	}
 }
 
-const mapStateToProps = state =>({
-	books: getVisibleBooks(state.books)
-})
+const mapStateToProps = state =>{
+	return{
+		books: getBooksArray(state.books)
+	}
+}
 
 export default connect(mapStateToProps)(BooksList)
