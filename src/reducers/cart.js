@@ -9,25 +9,6 @@ const initialState = {
   booksInCart: [],
   addedBooksQuantity: {},
 }
-  
-// const booksInCart = (state = initialState.booksInCart, {type, payload}) => {
-//   switch(type){
-//     case ADD_BOOK_TO_CART: 
-//       for(let i=0; i<state.length; i++){
-//         if(state[i]['id'] === payload['id']) return state
-//       }
-//       return[
-//         ...state,
-//         payload
-//         // payload['stock'] = payload['stock']-1
-//       ]
-//     case REMOVE_BOOK_FROM_CART:
-//       return state.filter(book => book['id'] !== payload);
-
-//     default:
-//       return state
-//   }
-// }
 
 const booksInCart = (state = initialState.booksInCart, {type, payload}) => {
   switch(type){

@@ -5,7 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import BookItem from './BookItem.js';
-import {getBooksArray} from '../reducers/books';
+import {getBooksArray} from '../../reducers/books';
 
 class BooksList extends Component {
 

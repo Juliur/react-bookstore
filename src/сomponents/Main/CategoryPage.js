@@ -1,5 +1,5 @@
 import React from 'react';
-import BooksList from '../../common/BooksList.js';
+import BooksList from '../../common/Books/BooksList.js';
 
 const CategoryPage = ({title, books, collections, getCollectionId}) =>{
   return(

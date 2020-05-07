@@ -1,44 +1,18 @@
-.btn-primary{
-	border: 0;
-}
-.btn-primary:hover{
-	background-color: #0AB3A3;
-}
 .card{
 	border-radius: 0;
 	border: 0;
 	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
 }
-.card-img-top{
-	height: 60%;
+.card-img-link-wrap{
+	overflow: hidden;
+	height: 400px;
 }
-.btn-secondary{
-	width: 140px;
-	height: 40px;
-	color: #333;
-	border-color: grey;
-	background-color: transparent;
-	border-radius: 0;
-	font-size: .8rem;
+.card-img-link{
+	transition: transform linear .2s;
 }
-.btn-secondary:hover{
-	background-color: #0AB3A3;
-	border-color: #0AB3A3;
-	color: white;
-}
-
-.link-to-all>a{
-	color: #0AB3A3;
-	text-transform: uppercase;
-	font-weight: 700;
-	font-size: 1.1rem;
-}
-.link-to-all>a>i{
-	margin-left: 10px;
-}
-.link-to-all>a:hover{
-	text-decoration: none;
-	color: #0AB3A3;
+.card-img-link:hover{
+	transform: scale(1.1);
+	transition: transform linear .2s;
 }
 .meta.author{
 	font-size: .8rem
@@ -52,25 +26,24 @@
 	background-color: transparent;
 	border-top: 0;
 }
-.card .card-btn{
-	background-color: transparent;
+.link-to-all>a{
+	color: #0AB3A3;
+	text-transform: uppercase;
+	font-weight: 700;
+	font-size: 1.1rem;
+}
+.link-to-all>a>i{
+	margin-left: 10px;
+}
+.link-to-all>a:hover{
+	text-decoration: none;
+	color: #0AB3A3;
+}
+.card-title a{
 	color: black;
-	border: 1px solid #A5A5A5;
-	font-size: .8rem;
-	border-radius: 0;
-	transition: all ease-in-out .1s;
 }
-.card .card-btn:not(:disabled):hover{
-	background-color: #0AB3A3;
-	border-color: #0AB3A3;
-	color: white;
-	transition: all ease-in-out .1s;
-}
-.card .card-btn:disabled{
-	cursor: default;
-	color: #A5A5A5;
+.card-title a:hover{
+	text-decoration: none;
+	color: #0AB3A3;
 }
 
-.card-btn:disabled:hover{
-	color: #A5A5A5;
-}

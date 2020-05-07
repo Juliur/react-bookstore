@@ -59,7 +59,6 @@ const mapStateToProps = (state) =>{
   return{
     booksInCart: getCartBooks(state),
     totalPrice: getTotalPrice(state),
-  
   }
 }
 

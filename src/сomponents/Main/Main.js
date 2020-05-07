@@ -4,8 +4,8 @@ import {Route, Switch} from 'react-router-dom';
 import HomePage from './HomePage.js';
 import CategoryPage from './CategoryPage.js';
 import CartPage from '../CartPage/CartPage.js';
+import BookPage from '../../common/Books/BookPage.js';
 import './main.css';
-
 
 class Main extends Component{
 
@@ -34,19 +34,35 @@ class Main extends Component{
 		return(
 			<main id="main">
 				<Switch>
-					<Route 	path="/home" 
-									exact 
-									render={()=> <HomePage 
+					<Route 	
+						path="/home" 
+						exact 
+						render={()=> <HomePage 
+														collections={collections} 
+														books={books} 
+														getCollectionId={this.getCollectionId} 
+													/>}
+					/>
+					<Route 	
+						path="/category/:title" 
+						render={(props)=><CategoryPage
+																books={books}
 																collections={collections} 
-																books={books} 
-																getCollectionId={this.getCollectionId} />}/>
-					<Route 	path="/category/:title" 
-									render={(props)=><CategoryPage
-																			books={books}
-																			collections={collections} 
-																			title={props.match.params.title}
-																			getCollectionId={this.getCollectionId} />}/>
-					<Route path="/cart" component={CartPage}/>
+																title={props.match.params.title}
+																getCollectionId={this.getCollectionId} />
+										}
+					/>
+					<Route 
+						path="/cart" 
+						component={CartPage}
+					/>
+					<Route 
+						path="/book/:id/:title"
+						render={(props)=><BookPage
+																id={props.match.params.id}
+																title={props.match.params.title}	
+														/>}
+					/>
 				</Switch>
 			</main>
 		)

@@ -16,7 +16,7 @@ const getBooksQuantity = (state, id) => fromCart.getBooksQuantity(state, id)
 const getBook = (state, id) => fromBooks.getBook(state, id)
 
 export const getCartBooks = state => {
-	if(Object.keys(state.books).length == 0) return [];
+	if(Object.keys(state.books).length === 0) return [];
 	let arr = getBooksInCart(state.cart);
 	let result = arr.map(id => ({
     ...getBook(state.books, id),
@@ -24,12 +24,6 @@ export const getCartBooks = state => {
 	}))
 	return result
 }
-	// let res = state['booksInCart'].map(book => ({
-	// 	...book,
-	// 	quantity: state['addedBooksQuantity'][book.id]
-	// }));
-	// return res
-// };
 
 export const getTotalPrice = function (state){
 	let res = getCartBooks(state).reduce((total, book)=>

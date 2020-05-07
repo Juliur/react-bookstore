@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Image from 'react-bootstrap/Image';
 import {removeBookFromCart, incrementBookQuantity, decrementBookQuantity} from '../../actions/index.js';
-import BookQuantity from './BookQuantity.js';
+import BookQuantity from '../../common/Buttons, Inputs/BookQuantity.js';
 
 class CartItem extends Component{
   render(){
@@ -14,7 +15,6 @@ class CartItem extends Component{
       image, 
       price,
       author, 
-      stock,
       availableQuantity, 
       quantity,
       removeBookFromCart, 
@@ -26,8 +26,9 @@ class CartItem extends Component{
       <div className="cart-item mb-3 custom-shadow">
         <Row className="no-gutters">
           <Col md={2} className="d-flex flex-column">
-            <Image src={'http://'+ image} fluid>
-            </Image>
+            <Link to={`/book/${title}`}>
+              <Image src={'http://'+ image} fluid />
+            </Link>
           </Col>
           <Col md={3}>
             <h5>Name</h5>

@@ -1,6 +1,6 @@
 import React from 'react';
 import CollectionsBanner from './BannerSection/CollectionsBanner.js';
-import BooksList from '../../common/BooksList.js';
+import BooksList from '../../common/Books/BooksList.js';
 
 const HomePage = ({collections, books, getCollectionId}) =>{
   return(
