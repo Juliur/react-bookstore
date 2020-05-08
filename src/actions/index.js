@@ -87,3 +87,17 @@ export const decrementBookQuantity = id => dispatch => {
 		payload: id,
 	})
 };
+
+export const addLike = id => dispatch => {
+	dispatch({
+		type: types.ADD_LIKE,
+		payload: id,
+	})
+};
+
+export const removeLike = id => dispatch => {
+	dispatch({
+		type: types.REMOVE_LIKE,
+		payload: id,
+	})
+};

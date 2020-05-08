@@ -29,3 +29,11 @@
 	border-radius: 3px;
 	font-weight: bold;
 }
+
+.liked-link{
+	color: white;
+}
+.liked-link:hover{
+	color: white;
+	text-decoration: none;
+}

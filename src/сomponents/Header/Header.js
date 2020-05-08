@@ -35,6 +35,9 @@ const Header = ({totalAmount}) =>{
 							<i className="fa fa-lg fa-shopping-cart" aria-hidden="true"></i>
 							<div className="cart-amount ml-2">{totalAmount}</div>
 						</Link>
+						<Link to="/liked" className="d-inline-flex align-items-center ml-2 liked-link">
+							<i className="fa fa-lg fa-heart-o" aria-hidden="true"></i>
+						</Link>
 					</div>
 				</Col>
 			</Row>
@@ -44,7 +47,7 @@ const Header = ({totalAmount}) =>{
 
 const mapStateToProps = (state)=>{
 	return{
-		totalAmount: getTotalBooksAmount(state.cart)
+		totalAmount: getTotalBooksAmount(state.cart),
 	}
 }
 export default connect(mapStateToProps)(Header)

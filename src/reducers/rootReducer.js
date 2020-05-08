@@ -2,11 +2,13 @@ import {combineReducers} from 'redux';
 import books, * as fromBooks from './books.js';
 import collections from './collections.js';
 import cart, * as fromCart from './cart.js';
+import likedBooks from './likedBooks';
 
 const rootReducer = combineReducers({
     books,
     collections,
-    cart,
+		cart,
+		likedBooks,
 })
 
 export default rootReducer

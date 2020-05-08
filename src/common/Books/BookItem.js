@@ -2,7 +2,7 @@ import React  from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
-import {addToCart} from '../../actions/index.js';
+import {addToCart, addLike, removeLike} from '../../actions/index.js';
 import {getCartBooks} from '../../reducers/rootReducer';
 import AddToCartBtn from '../Buttons, Inputs/AddToCartBtn';
 
@@ -12,8 +12,9 @@ const BookItem = ({
 	title,
 	price,
 	author,
-	addToCart,
-	booksInCart,
+	addLike,
+	removeLike,
+	isLiked
 	}) => {
 
 		return(
@@ -38,25 +39,27 @@ const BookItem = ({
 					<AddToCartBtn
 						id={id}
 					/>
-					{/* <button 
-						disabled={renderBookStatus(booksInCart, id)}
-						onClick={() => addToCart(id)} 
-						className="btn card-btn text-uppercase p-2 font-weight-bold mt-auto"
-					>
-						{renderBookStatus(booksInCart, id) ? "In cart" : "Add to cart"}
-					</button> */}
+					<button onClick={()=> isLiked ? removeLike(id) : addLike(id)}>
+						{ isLiked ? 
+							<i className="fa fa-heart" aria-hidden="true"></i> :
+							<i className="fa fa-heart-o" aria-hidden="true"></i>
+						}
+					</button>
 				</Card.Footer>
 			</Card>
   )
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
 	return{
 		booksInCart: getCartBooks(state),
+		isLiked: state.likedBooks.includes(ownProps.id),
 	}
 }
 const mapDispatchToProps = {
 	addToCart,
+	addLike,
+	removeLike
 }
 
 export default connect(

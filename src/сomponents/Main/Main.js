@@ -6,6 +6,7 @@ import CategoryPage from './CategoryPage.js';
 import CartPage from '../CartPage/CartPage.js';
 import BookPage from '../../common/Books/BookPage.js';
 import './main.css';
+import LikedBooks from './LikedBooks.js';
 
 class Main extends Component{
 
@@ -63,6 +64,7 @@ class Main extends Component{
 																title={props.match.params.title}	
 														/>}
 					/>
+					<Route path="/liked" component={LikedBooks} />
 				</Switch>
 			</main>
 		)
