@@ -1,4 +1,9 @@
-import {FETCH_BOOKS_SUCCESS, FETCH_BOOK_BY_ID_SUCCESS, ADD_BOOK_TO_CART, INCREMENT_BOOK_QUANTITY} from '../actions/actionTypes.js';
+import {
+	FETCH_BOOKS_SUCCESS, 
+	FETCH_BOOK_BY_ID_SUCCESS, 
+	ADD_BOOK_TO_CART, 
+	INCREMENT_BOOK_QUANTITY,
+	DECREMENT_BOOK_QUANTITY} from '../actions/actionTypes.js';
 
 const books = (state = {}, {type, payload}) =>{
 	switch(type){
@@ -10,12 +15,21 @@ const books = (state = {}, {type, payload}) =>{
 					return map
 				}, {})
 			}
+
 		case FETCH_BOOK_BY_ID_SUCCESS: 
 			return Object.assign({}, state, {[payload['id']] : payload})
+
 		case ADD_BOOK_TO_CART:
+		case INCREMENT_BOOK_QUANTITY:
 			let addedBook = state[payload];
 			addedBook['stock'] = addedBook['stock'] - 1;
 			return Object.assign({}, state);
+
+		case DECREMENT_BOOK_QUANTITY:
+			let decreasedBook = state[payload];
+			decreasedBook['stock'] = decreasedBook['stock'] + 1;
+			return Object.assign({}, state);
+
 		default:
 			return state           
 	}

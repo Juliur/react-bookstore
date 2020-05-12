@@ -15,8 +15,32 @@ body{
 .shadow-custom{
 	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
 }
-/* [id='nav-toggle']:checked  #main>#category-page{
-  -webkit-transform: translateX(320px);
-  -moz-transform: translateX(320px);
-  transform: translateX(320px);
-} */
+/* styles for wishlist and cart tables */
+#table-wrap{
+	margin-top: 3rem;
+}
+.table{
+  background-color: white;
+  margin: auto;
+}
+.table-header{
+  font-size: .7rem;
+  font-weight: bold;
+}
+.bordered-row{
+  border-top: 2px solid #A5A5A5;
+  border-bottom: 2px solid #A5A5A5;
+}
+.table-img{
+  width: inherit;
+}
+.table-title a{
+  color: #0AB3A3;
+}
+
+.table-title:hover a{
+	text-decoration: none;
+}
+.plug h4{
+  text-align: center;
+}

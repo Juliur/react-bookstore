@@ -3,21 +3,11 @@
   background-color: white;
 }
 
-.cart-item img{
-  margin: 5px;
-}
-
-.quantity-input{
-  width: 50px;
-}
-
 .empty-cart-img{
   background-image: url('/dribbble.jpg');
-  width: 550px;
-  height: 400px;
+  width: 350px;
+  height: 300px;
   background-size: cover;
+  background-position: center;
 }
-.empty-cart-img+h4{
-  margin-top: -50px;
-  text-align: center;
-}
+

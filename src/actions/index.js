@@ -8,7 +8,7 @@ export const fetchBooks = () => async dispatch => {
     dispatch({type: types.FETCH_BOOKS_START});
     
     try{
-			const response = await axios.get("http://localhost:8000/v1/products");
+			const response = await axios.get("/books.json");
 			const books = response.data.items;
         dispatch({
           type: types.FETCH_BOOKS_SUCCESS, payload: books
@@ -25,8 +25,10 @@ export const fetchBookById = (id) => async dispatch =>{
 	});
 
 	try{
-		const responseBook = await axios.get(`http://localhost:8000/v1/products/${id}`);
-		const book = responseBook.data;
+		const response = await axios.get("/books.json");
+		const book = response.data.items.filter(book => book['id'] === id);
+		// const responseBook = await axios.get(`http://localhost:8000/v1/products/${id}`);
+		// const book = responseBook.data;
 		dispatch({
 			type: types.FETCH_BOOK_BY_ID_SUCCESS, 
 			payload: book,
@@ -46,7 +48,7 @@ export const fetchCollections = () => async dispatch => {
 		});
 
     try{
-			const responseCollections = await axios.get("http://localhost:8000/v1/collections");
+			const responseCollections = await axios.get("/collections.json");
 			const collections = responseCollections.data.items;
 			dispatch({
 				type: types.FETCH_COLLECTIONS_SUCCESS, 
@@ -90,14 +92,14 @@ export const decrementBookQuantity = id => dispatch => {
 
 export const addLike = id => dispatch => {
 	dispatch({
-		type: types.ADD_LIKE,
+		type: types.ADD_TO_WISH_LIST,
 		payload: id,
 	})
 };
 
 export const removeLike = id => dispatch => {
 	dispatch({
-		type: types.REMOVE_LIKE,
+		type: types.REMOVE_FROM_WISH_LIST,
 		payload: id,
 	})
 };

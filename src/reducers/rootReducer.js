@@ -2,13 +2,13 @@ import {combineReducers} from 'redux';
 import books, * as fromBooks from './books.js';
 import collections from './collections.js';
 import cart, * as fromCart from './cart.js';
-import likedBooks from './likedBooks';
+import wishList, * as fromWishList from './wishList';
 
 const rootReducer = combineReducers({
     books,
     collections,
 		cart,
-		likedBooks,
+		wishList,
 })
 
 export default rootReducer
@@ -16,6 +16,15 @@ export default rootReducer
 const getBooksInCart = state => fromCart.getBooksInCart(state)
 const getBooksQuantity = (state, id) => fromCart.getBooksQuantity(state, id)
 const getBook = (state, id) => fromBooks.getBook(state, id)
+const getWishList = state => fromWishList.getWishList(state)
+
+export const getWishListBooks = state =>{
+	if(state.wishList.length === 0) return [];
+	let result = getWishList(state.wishList).map(id => ({
+		...getBook(state.books, id)
+	}))
+	return result
+}
 
 export const getCartBooks = state => {
 	if(Object.keys(state.books).length === 0) return [];

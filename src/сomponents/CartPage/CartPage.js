@@ -1,5 +1,6 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
@@ -8,16 +9,13 @@ import CartTotal from './CartTotal.js';
 import {getCartBooks, getTotalPrice} from '../../reducers/rootReducer.js';
 import './cartPage.css';
 
-class CartPage extends Component{
+const CartPage = ({booksInCart, totalPrice}) =>{
 
-  renderCartPage() {
-    const {booksInCart, totalPrice} = this.props; 
-
-    if(booksInCart.length > 0){
+  const renderCartPage = arr => {
+    if(arr.length > 0){
       return(
-        <Row>
-          <Col md={8}>
-            {booksInCart.map(({id, name, pricing, images, quantity}) =>
+        <div>
+          {arr.map(({id, name, pricing, images, quantity, stock}) =>
             <CartItem
               key={id}
               id={id}
@@ -26,36 +24,47 @@ class CartPage extends Component{
               price={pricing.retail}
               author={name.pt}
               quantity={quantity}
+              stock={stock}
             />)
           }
-          </Col>
-          <Col md={4}>
-            <CartTotal
-              totalPrice={totalPrice}/>
-          </Col>
-        </Row>
+          <Row className="no-gutters py-2 bordered-row flex-column align-items-center">
+            <h6 className="font-weight-bold mb-0">Cart Total: </h6>
+            <span className="font-weight-bold mt-2">${totalPrice}</span>
+          </Row>
+        </div>
       )
     }else{
       return(
-        <div className="d-flex flex-column">
+        <div className="d-flex flex-column plug">
           <div className="empty-cart-img m-auto"></div>
           <h4>Your cart is currently empty</h4>
+          <div className="link-to-all d-flex justify-content-center w-100 pt-4">
+            <Link to="/home">Back to store</Link>
+          </div>
         </div>
       )
     } 
   }
 
-  render(){
-    return(
-      <Container>
-        <h3 className="text-capitalize py-3">Cart</h3>
-        {this.renderCartPage()}
+  return(
+    <div id="table-wrap">
+      <Container className="table shadow-custom p-4">
+        <h4 className="pb-4 mb-0">Cart</h4>
+        <Row className="mb-3 py-2 bordered-row no-gutters">
+          <Col md={5} className="table-header">Product</Col>
+          <Col md={2} className="table-header">Price</Col>
+          <Col md={2} className="table-header">Quantity</Col>
+          <Col md={2} className="table-header">Total</Col>
+          <Col md={1} className="table-header"></Col>
+        </Row>
+        {renderCartPage(booksInCart)}
+        
       </Container>
-    )
-  }
+    </div>
+  )
 }
 
-const mapStateToProps = (state) =>{
+const mapStateToProps = state =>{
   return{
     booksInCart: getCartBooks(state),
     totalPrice: getTotalPrice(state),

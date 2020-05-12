@@ -11,7 +11,8 @@ const HomePage = ({collections, books, getCollectionId}) =>{
 				/>
 				<BooksList
           title={"bestsellers"}
-					collections={collections}
+          collections={collections}
+          collectionId={getCollectionId(collections, "bestsellers")}
           books={books}
           quantity={4}
 				/>

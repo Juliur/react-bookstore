@@ -13,9 +13,7 @@ const initialState = {
 const booksInCart = (state = initialState.booksInCart, {type, payload}) => {
   switch(type){
     case ADD_BOOK_TO_CART: 
-      for(let i=0; i<state.length; i++){
-        if(state[i] === payload) return state
-      }
+      if(state.includes(payload)) return state;
       return[
         ...state,
         payload

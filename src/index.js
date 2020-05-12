@@ -11,14 +11,26 @@ import ScrollToTop from './common/ScrollToTop.js';
 import {fetchBooks, fetchCollections} from './actions/index.js';
 import {loadState, saveState} from './localStorage/localStorage.js';
 
-const persistedState = loadState('cart');
+const persistedCart = loadState('cart');
+const persistedWishList = loadState('wishList')
 
-const store = createStore(rootReducer, {cart: persistedState}, composeWithDevTools(applyMiddleware(thunk)));
+const store = createStore(
+  rootReducer, 
+  {
+    cart: persistedCart, 
+    wishList: persistedWishList
+  }, 
+  composeWithDevTools(applyMiddleware(thunk)));
+
 store.dispatch(fetchBooks());
 store.dispatch(fetchCollections());
 
 store.subscribe(() => {
   saveState('cart', store.getState().cart);
+});
+
+store.subscribe(() => {
+  saveState('wishList', store.getState().wishList);
 });
 
 

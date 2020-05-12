@@ -6,7 +6,7 @@ import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image'
 import {fetchBookById} from '../../actions/index';
 import {getBook} from '../../reducers/books';
-import AddToCartBtn from '../Buttons, Inputs/AddToCartBtn';
+import Buttons from '../Buttons, Inputs/Buttons';
 import './bookPage.css';
 
 class BookPage extends Component {
@@ -31,12 +31,14 @@ class BookPage extends Component {
             <h3>{book['name']['en']}</h3>
             <p>{book['description']['en']}</p> 
             <p className="price">${book['pricing']['retail']}</p>
-              <AddToCartBtn
+              <Buttons.AddToCartBtn
                 id={book['id']}
               />
-
+              <Buttons.AddToWishListBtn
+                id={book['id']}
+                type={"simple"}
+              />
           </div>
-          
         </Col>
       </Row>
     </div>
@@ -61,6 +63,7 @@ class BookPage extends Component {
 const mapStateToProps = (state, ownProps) => {
 	return{
     book: getBook(state.books, ownProps.id),
+    isLiked: state.wishList.includes(ownProps.id)
 	}
 }
 

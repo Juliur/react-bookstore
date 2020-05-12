@@ -6,6 +6,7 @@
 .card-img-link-wrap{
 	overflow: hidden;
 	height: 400px;
+	position: relative;
 }
 .card-img-link{
 	transition: transform linear .2s;
@@ -13,6 +14,20 @@
 .card-img-link:hover{
 	transform: scale(1.1);
 	transition: transform linear .2s;
+}
+.box-hover{
+	position: absolute;
+	bottom: 10%;
+	left: -50%;
+	transition: all linear .2s;
+}
+.card-img-link-wrap:hover .box-hover{
+	left: 5%;
+	transition: all linear .2s;
+}
+
+.box-hover .btn-hover:focus{
+	outline: none;
 }
 .meta.author{
 	font-size: .8rem

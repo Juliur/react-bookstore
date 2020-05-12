@@ -5,14 +5,14 @@ import HomePage from './HomePage.js';
 import CategoryPage from './CategoryPage.js';
 import CartPage from '../CartPage/CartPage.js';
 import BookPage from '../../common/Books/BookPage.js';
+import WishList from './WishList.js';
 import './main.css';
-import LikedBooks from './LikedBooks.js';
 
 class Main extends Component{
 
-	getCollectionId(arr, search){
+	getCollectionId = (arr, search)=> {
 		let collectionId;
-			arr.map(function(item){
+			arr.map( item => {
 				for(let key in item){
 					if(key === "name" && item[key].en.toLowerCase() === search){
 						findId(item);
@@ -20,9 +20,9 @@ class Main extends Component{
 					}
 					function findId(item){
 						for(let key in item){
-						if(key === "id"){
-							collectionId = item[key]
-						}
+							if(key === "id"){
+								collectionId = item[key]
+							}
 					}
 				}
 			}
@@ -64,7 +64,7 @@ class Main extends Component{
 																title={props.match.params.title}	
 														/>}
 					/>
-					<Route path="/liked" component={LikedBooks} />
+					<Route path="/wish-list" component={WishList} />
 				</Switch>
 			</main>
 		)
