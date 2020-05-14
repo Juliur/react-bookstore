@@ -12,9 +12,6 @@ const BookItem = ({
 	title,
 	price,
 	author,
-	isLiked,
-	addLike,
-	removeLike,
 	}) => {
 
 		return(
@@ -22,7 +19,7 @@ const BookItem = ({
 				<div className="card-img-link-wrap d-inline-block">
 					<Link to={{ pathname: `/book/${id}/${title}`,
 										id: id }} className="d-block card-img-link h-100" title={`${title}`}>
-						<Card.Img variant="top" src={'http://'+ image} alt="..." className="p-1 h-100"/>
+						<Card.Img variant="top" src={image} alt="..." className="p-1 h-100"/>
 					</Link>
 					<div className="box-hover">
 						<Buttons.AddToWishListBtn

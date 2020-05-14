@@ -17,7 +17,7 @@ const BooksList= ({books, collectionId, quantity, shouldHide, title}) =>{
 	return(
 		<section className="pt-3">
 			<Container>
-				<h3 className="text-capitalize">{title}</h3>
+				<h3 className="text-capitalize text-center text-md-left">{title}</h3>
 				<Row>
 				{
 					books
@@ -29,7 +29,7 @@ const BooksList= ({books, collectionId, quantity, shouldHide, title}) =>{
 						})
 						.slice(0, itemsToRender(books, quantity))
 						.map(({id, name, images, pricing})=>
-							<Col md={3}
+							<Col xs={{span:8, offset:2}} sm={{span:6, offset:0}} md={3}
 									key={id}
 									className="mb-4"
 								>
@@ -43,7 +43,7 @@ const BooksList= ({books, collectionId, quantity, shouldHide, title}) =>{
 							</Col>	
 						)
 					}
-					<div className="link-to-all d-flex justify-content-center w-100 pt-4">
+					<div className="link-to-all d-flex justify-content-center w-100 pt-md-4">
 						<Link to={`/category/${title}`} className={shouldHide ? 'hidden' : ''}>
 							See all
 						</Link>

@@ -17,31 +17,31 @@ const CartItem = ({
 }) => {
     return(
       <Row className="no-gutters py-2">
-        <Col md={1} sm={12}>
-          <Image src={'http://'+ image} className="table-img" />
+        <Col xs={1} className="d-flex align-items-center">
+          <Image src={image} className="table-img" />
         </Col>
-        <Col md={4}>
+        <Col xs={4}>
         <h6 className="font-weight-bold ml-2 table-title">
-          <Link to={{ pathname: `/book/${id}/${title}`, id: id }}>
+          <Link to={{ pathname: `/react-bookstore/book/${id}/${title}`, id: id }}>
             {title}
           </Link>
         </h6>
         <p className="meta author ml-2">{author}</p> 
         </Col>
-        <Col md={2}>
+        <Col xs={2} className="d-flex align-items-center justify-content-center">
           <BookQuantity
             id={id}
             availableQuantity={stock}
             quantity={quantity}
           />
         </Col>
-        <Col md={2}>
-          <p>${price}</p>
+        <Col xs={2} className="d-flex align-items-center justify-content-center">
+          <p className="text-center mb-0">${price}</p>
         </Col>
-        <Col md={2}>
-          <p>{quantity*price}</p>
+        <Col xs={2} className="d-flex align-items-center justify-content-center">
+          <p className="text-center mb-0">${quantity*price}</p>
         </Col>
-        <Col md={1}>
+        <Col xs={1} className="d-flex align-items-center justify-content-center">
           <Buttons.RemoveFromCartBtn
             id={id}
           />

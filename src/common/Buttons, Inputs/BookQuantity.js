@@ -15,7 +15,7 @@ const BookQuantity = ({
     (availableQuantity <=5) ? <p>Items available: {availableQuantity}</p> : ""
 
   return(
-    <div>
+    <div className="d-flex justify-content-center align-items-center">
        <button 
           disabled={quantity <= 1}
           className="quantity-btn m-1"

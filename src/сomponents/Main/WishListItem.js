@@ -10,33 +10,33 @@ const WishListItem = ({id, title, image, author, price, stock}) => {
 
   return(
     <Row className="no-gutters py-2">
-      <Col md={6}>
-        <Row className="no-gutters py-2">
-          <div className="col-1 d-flex align-items-center">
-            <Buttons.RemoveFromWishListBtn 
-              id={id}
-            />
-          </div>
-          <div className="col-12 col-sm-12 col-md-2">
-            <Image src={'http://'+ image} className="table-img"/>
-          </div>
-          <div className="col-12 col-sm-12 col-md-9">
-            <h6 className="font-weight-bold ml-2 table-title">
-              <Link to={{ pathname: `/book/${id}/${title}`, id: id }}>
-							  {title}
-						  </Link>
-            </h6>
-            <p className="ml-2">{author}</p>
-          </div>
-        </Row>
+      <Col xs={1} className="d-flex align-items-center">
+        <Buttons.RemoveFromWishListBtn 
+          id={id}
+        />
       </Col>
-      <Col md={2} className="py-2">${price}</Col>
-      <Col md={2} className="py-2">
-        <p style={{color: OutOfStock(stock) ? "red" : "#0AB3A3"}}>
+      <Col xs={1} md={2} className="d-flex align-items-center">
+        <Image src={image} className="table-img"/>
+      </Col>
+      <Col xs={4} md={9}>
+        <h6 className="font-weight-bold ml-2 table-title">
+          <Link to={{ pathname: `/react-bookstore/book/${id}/${title}`, id: id }}>
+            {title}
+          </Link>
+        </h6>
+        <p className="ml-2 ">{author}</p>
+      </Col>
+
+      <Col xs={2} className="d-flex align-items-center justify-content-center py-2">
+        <p className="text-center mb-0">${price}</p>
+      </Col>
+      <Col xs={2} className="d-flex align-items-center justify-content-center py-2">
+        <p className="text-center mb-0" 
+          style={{color: OutOfStock(stock) ? "red" : "#0AB3A3"}}>
           {OutOfStock(stock) ? "Out of Stock" : "In Stock"}
         </p>
       </Col>
-      <Col md={2} className="py-2">
+      <Col xs={2} className="d-flex align-items-center justify-content-center py-2">
         <Buttons.AddToCartBtn 
           id={id}
         />

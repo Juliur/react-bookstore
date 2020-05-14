@@ -24,9 +24,16 @@ const AddToWishListBtn = ({id, type, isLiked, addLike, removeLike,}) =>{
   }else{
     return(
       <button className="btn-constant" onClick={()=> { isLiked ? removeLike(id) : addLike(id)}}>
+        { isLiked ? 
         <span className="btn-text">
-          { isLiked ? <i class="fa fa-heart" aria-hidden="true">Added</i> : <i class="fa fa-heart-o" aria-hidden="true">Add to wishlist</i>}
+          <i className="fa fa-heart" aria-hidden="true"></i>
+          Added to wishlist
+        </span> :
+        <span className="btn-text">
+          <i className="fa fa-heart-o" aria-hidden="true"></i>
+          Add to wishlist
         </span>
+        }
       </button>
     )
   }
@@ -59,7 +66,7 @@ const AddToCartBtn = ({booksInCart, id, addToCart,}) =>{
     <button 
       disabled={renderBookStatus(booksInCart, id)}
       onClick={() => addToCart(id)} 
-      className="btn-custom text-uppercase p-2 font-weight-bold mt-auto"
+      className="btn-custom text-uppercase p-2 font-weight-bold"
     >
       {renderBookStatus(booksInCart, id) ? "In cart" : "Add to cart"}
     </button>

@@ -4,7 +4,7 @@
 }
 
 .empty-cart-img{
-  background-image: url('/dribbble.jpg');
+  background-image: url('/react-bookstore/images/dribbble.jpg');
   width: 350px;
   height: 300px;
   background-size: cover;

@@ -75,6 +75,7 @@ button {
 .btn-custom{
 	background-color: transparent;
 	color: black;
+	margin-top: auto;
 	border: 1px solid #A5A5A5;
 	font-size: .8rem;
 	border-radius: 0;
@@ -97,6 +98,7 @@ button {
 .btn-constant{
 	font-weight: bold;
 	font-size: .7rem;
+	font-family: inherit;
 }
 .btn-constant:hover .btn-text{
 	color: #0AB3A3;

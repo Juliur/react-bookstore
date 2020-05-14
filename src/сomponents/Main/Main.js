@@ -34,9 +34,8 @@ class Main extends Component{
 		const {books, collections} = this.props;
 		return(
 			<main id="main">
-				<Switch>
 					<Route 	
-						path="/home" 
+						path="/" 
 						exact 
 						render={()=> <HomePage 
 														collections={collections} 
@@ -65,7 +64,6 @@ class Main extends Component{
 														/>}
 					/>
 					<Route path="/wish-list" component={WishList} />
-				</Switch>
 			</main>
 		)
 	}

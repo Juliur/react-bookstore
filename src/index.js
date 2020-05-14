@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux';
-import {BrowserRouter as Router} from 'react-router-dom';
+import {HashRouter as Router} from 'react-router-dom';
 import {composeWithDevTools} from 'redux-devtools-extension'
 import thunk from 'redux-thunk';
 import rootReducer from './reducers/rootReducer.js';
@@ -37,7 +37,7 @@ store.subscribe(() => {
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <Router basename="/">
+      <Router basename="/react-bookstore">
         <ScrollToTop />
         <App />
       </Router>

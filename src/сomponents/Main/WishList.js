@@ -16,7 +16,7 @@ const WishList = ({wishListBooks}) =>{
         <div className="plug">
           <h4>Wishlist is empty</h4>
           <div className="link-to-all d-flex justify-content-center w-100 pt-4">
-            <Link to="/home">Back to store</Link>
+            <Link to="/react-bookstore">Back to store</Link>
           </div>
         </div>
       ) 
@@ -41,9 +41,9 @@ const WishList = ({wishListBooks}) =>{
       <Container className="table shadow-custom p-4">
         <h4 className="pb-4 mb-0">Wishlist</h4>
           <Row className="mb-3 py-2 bordered-row no-gutters">
-            <Col md={6} className="table-header text-center">Product</Col>
-            <Col md={2} className="table-header">Price</Col>
-            <Col md={4} className="table-header">Stock status</Col>
+            <Col xs={6} className="table-header text-center">Product</Col>
+            <Col xs={2} className="table-header">Price</Col>
+            <Col xs={4} className="table-header">Stock status</Col>
           </Row>
           { RenderWishList(wishListBooks)}
       </Container>

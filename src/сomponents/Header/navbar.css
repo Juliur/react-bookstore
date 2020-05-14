@@ -26,7 +26,7 @@
 .nav-toggle {
   position: absolute;
   padding: 0.5rem;
-  width: 150px;
+  width: auto;
   background: white;
   cursor: pointer;
   font-size: .9rem;
@@ -42,7 +42,6 @@
 .nav-toggle::before {
   content: '\2630';
   text-decoration: none;
-  margin-right: 5px;
 }
 .nav-toggle::after{
   content: '\274C';
@@ -55,7 +54,7 @@
 }
 /**
 * Скрытый чекбокс (флажок)
-* невидим и недоступен :)
+* невидим и недоступен
 * имя селектора атрибут флажка
 */
 

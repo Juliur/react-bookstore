@@ -37,10 +37,81 @@ body{
 .table-title a{
   color: #0AB3A3;
 }
-
 .table-title:hover a{
 	text-decoration: none;
 }
 .plug h4{
   text-align: center;
+}
+
+@media (max-width: 575px){
+  *{
+    font-size: .8rem;
+  }
+  #nav{
+    width: 200px;
+    min-width: 200px;
+  }
+  [id='nav-toggle']:checked ~ .nav-toggle {
+    left: 150px;
+  }
+  .header-icons-wrap .cart-amount{
+    width: 25px;
+  }
+  .banner{
+    height: 15vh;
+  }
+  .banner-inner-wrap{
+    width: auto;
+  }
+  .banner-title{
+    font-size: 1.5rem;
+  }
+  .banner-inner-wrap .banner-btn{
+    width: 40%;
+    font-size: .8rem;
+  }
+  .card-img-link-wrap{
+    height: auto;
+  }
+  .card-title>a{
+    font-size: 1.3rem;
+  }
+  .card .meta.author{
+    font-size: 1rem;
+  }
+  .card .meta.price{
+    font-size: 1.3rem;
+  }
+  .btn-custom{
+    width: 100%;
+  }
+  .table .btn-custom{
+    font-size: .5rem;
+    margin-top: unset;
+  }
+  .quantity-btn{
+    font-size: 1.5rem;
+  }
+  .quantity-input{
+    width: 30px;
+    text-align: center;
+    font-weight: bold;
+  }
+  .meta.author {
+    font-size: .6rem;
+  }
+  .box-hover{
+    left: 5%;
+  }
+
+}
+@media (max-width: 767px){
+  
+}
+@media (max-width: 991px){
+  
+}
+@media (max-width: 1199px){
+  
 }

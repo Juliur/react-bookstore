@@ -11,9 +11,9 @@ import './bookPage.css';
 
 class BookPage extends Component {
 
-  componentDidMount(){
-    this.props.fetchBookById(this.props.id);
-  }
+  // componentDidMount(){
+  //   this.props.fetchBookById(this.props.id);
+  // }
 
   renderBook = () =>{
     const {
@@ -23,21 +23,24 @@ class BookPage extends Component {
     if(!book) return "loading";
     return <div>
       <Row className="no-gutters">
-        <Col md={4}>
-          <Image src={`http://${book['images'][0].url}`} className="w-100" fluid/>
+        <Col xs={12} md={4}>
+          <Image src={book['images'][0].url} className="w-100" fluid/>
         </Col>
-        <Col md={6}>
-          <div className="book-info pl-3">
+        <Col xs={12} md={6}>
+          <div className="book-info pl-md-3 pt-3">
             <h3>{book['name']['en']}</h3>
-            <p>{book['description']['en']}</p> 
-            <p className="price">${book['pricing']['retail']}</p>
-              <Buttons.AddToCartBtn
-                id={book['id']}
-              />
+            <p>{book['description']['en']}</p>
+            <div className="d-inline-flex justify-content-between w-100">
               <Buttons.AddToWishListBtn
                 id={book['id']}
                 type={"simple"}
               />
+              <p className="price">${book['pricing']['retail']}</p>
+            </div>
+    
+            <Buttons.AddToCartBtn
+              id={book['id']}
+            />
           </div>
         </Col>
       </Row>
@@ -67,11 +70,11 @@ const mapStateToProps = (state, ownProps) => {
 	}
 }
 
-const mapDispatchToProps = {
-  fetchBookById,
-}
+// const mapDispatchToProps = {
+//   fetchBookById,
+// }
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps,
+  // mapDispatchToProps,
 )(BookPage)

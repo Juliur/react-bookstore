@@ -39,7 +39,7 @@ const CartPage = ({booksInCart, totalPrice}) =>{
           <div className="empty-cart-img m-auto"></div>
           <h4>Your cart is currently empty</h4>
           <div className="link-to-all d-flex justify-content-center w-100 pt-4">
-            <Link to="/home">Back to store</Link>
+            <Link to="/react-bookstore">Back to store</Link>
           </div>
         </div>
       )
@@ -51,11 +51,11 @@ const CartPage = ({booksInCart, totalPrice}) =>{
       <Container className="table shadow-custom p-4">
         <h4 className="pb-4 mb-0">Cart</h4>
         <Row className="mb-3 py-2 bordered-row no-gutters">
-          <Col md={5} className="table-header">Product</Col>
-          <Col md={2} className="table-header">Price</Col>
-          <Col md={2} className="table-header">Quantity</Col>
-          <Col md={2} className="table-header">Total</Col>
-          <Col md={1} className="table-header"></Col>
+          <Col xs={5} className="table-header">Product</Col>
+          <Col xs={2} className="table-header text-center">Price</Col>
+          <Col xs={2} className="table-header text-center">Quantity</Col>
+          <Col xs={2} className="table-header text-center">Total</Col>
+          <Col xs={1} className="table-header text-center"></Col>
         </Row>
         {renderCartPage(booksInCart)}
         

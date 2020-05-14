@@ -8,7 +8,7 @@ export const fetchBooks = () => async dispatch => {
     dispatch({type: types.FETCH_BOOKS_START});
     
     try{
-			const response = await axios.get("/books.json");
+			const response = await axios.get("books.json");
 			const books = response.data.items;
         dispatch({
           type: types.FETCH_BOOKS_SUCCESS, payload: books
@@ -25,8 +25,9 @@ export const fetchBookById = (id) => async dispatch =>{
 	});
 
 	try{
-		const response = await axios.get("/books.json");
+		const response = await axios.get("books.json");
 		const book = response.data.items.filter(book => book['id'] === id);
+		console.log(book)
 		// const responseBook = await axios.get(`http://localhost:8000/v1/products/${id}`);
 		// const book = responseBook.data;
 		dispatch({
@@ -48,7 +49,7 @@ export const fetchCollections = () => async dispatch => {
 		});
 
     try{
-			const responseCollections = await axios.get("/collections.json");
+			const responseCollections = await axios.get("collections.json");
 			const collections = responseCollections.data.items;
 			dispatch({
 				type: types.FETCH_COLLECTIONS_SUCCESS, 
