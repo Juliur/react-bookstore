@@ -44,6 +44,43 @@ body{
   text-align: center;
 }
 
+
+@media (max-width: 991px){
+  .banner{
+    height: 25vh;
+  }
+  .header-icons-wrap .cart-amount{
+    width: 30px;
+  }
+  .header-link span,
+  .nav-toggle span{
+    font-size: .6rem;
+  } 
+}
+@media (max-width: 767px){
+  *{
+    font-size: .9rem;
+  }
+  .nav-toggle span{
+    display: none;
+  }
+  .banner{
+    height: 20vh;
+  }
+  .banner-title{
+    font-size: 1.7rem;
+  }
+  .box-hover{
+    left: 5%;
+  }
+  .banner-inner-wrap .banner-btn{
+    width: 40%;
+    font-size: .8rem;
+  }
+  .btn-custom{
+    width: 100%;
+  }
+}
 @media (max-width: 575px){
   *{
     font-size: .8rem;
@@ -52,6 +89,9 @@ body{
     width: 200px;
     min-width: 200px;
   }
+  .nav-toggle span{
+    display: none;
+  } 
   [id='nav-toggle']:checked ~ .nav-toggle {
     left: 150px;
   }
@@ -70,6 +110,7 @@ body{
   .banner-inner-wrap .banner-btn{
     width: 40%;
     font-size: .8rem;
+    border-width: 1px;
   }
   .card-img-link-wrap{
     height: auto;
@@ -82,9 +123,6 @@ body{
   }
   .card .meta.price{
     font-size: 1.3rem;
-  }
-  .btn-custom{
-    width: 100%;
   }
   .table .btn-custom{
     font-size: .5rem;
@@ -101,16 +139,6 @@ body{
   .meta.author {
     font-size: .6rem;
   }
-  .box-hover{
-    left: 5%;
-  }
-
-}
-@media (max-width: 767px){
-  
-}
-@media (max-width: 991px){
-  
 }
 @media (max-width: 1199px){
   

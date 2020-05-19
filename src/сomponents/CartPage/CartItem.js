@@ -22,7 +22,7 @@ const CartItem = ({
         </Col>
         <Col xs={4}>
         <h6 className="font-weight-bold ml-2 table-title">
-          <Link to={{ pathname: `/react-bookstore/book/${id}/${title}`, id: id }}>
+          <Link to={{ pathname: `/book/${id}/${title}`, id: id }}>
             {title}
           </Link>
         </h6>

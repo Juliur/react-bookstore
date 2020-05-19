@@ -16,7 +16,7 @@ const WishList = ({wishListBooks}) =>{
         <div className="plug">
           <h4>Wishlist is empty</h4>
           <div className="link-to-all d-flex justify-content-center w-100 pt-4">
-            <Link to="/react-bookstore">Back to store</Link>
+            <Link to="/">Back to store</Link>
           </div>
         </div>
       ) 

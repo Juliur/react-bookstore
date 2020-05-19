@@ -5,7 +5,6 @@ import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import CartItem from './CartItem.js';
-import CartTotal from './CartTotal.js';
 import {getCartBooks, getTotalPrice} from '../../reducers/rootReducer.js';
 import './cartPage.css';
 
@@ -39,7 +38,7 @@ const CartPage = ({booksInCart, totalPrice}) =>{
           <div className="empty-cart-img m-auto"></div>
           <h4>Your cart is currently empty</h4>
           <div className="link-to-all d-flex justify-content-center w-100 pt-4">
-            <Link to="/react-bookstore">Back to store</Link>
+            <Link to="/">Back to store</Link>
           </div>
         </div>
       )

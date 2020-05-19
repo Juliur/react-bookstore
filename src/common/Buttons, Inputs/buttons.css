@@ -1,8 +1,25 @@
+button.active.focus,
+button.active:focus,
+button.focus,
+button:active.focus,
+button:active:focus,
+button:focus,
+.btn.active.focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn:active:focus,
+.btn:focus {
+  outline: 0 !important;
+  outline-color: transparent !important;
+  outline-width: 0 !important;
+  outline-style: none !important;
+}
+
 button {
   position: relative;
   display: inline-block;
   cursor: pointer;
-  outline: none;
   border: 0;
   vertical-align: middle;
   text-decoration: none;
@@ -11,11 +28,13 @@ button {
   font-size: inherit;
   font-family: inherit;
 }
+
 .btn-hover {
-	height: auto;
-	width: 180px;
-	border-radius: 1.425rem;
+  height: auto;
+  width: 180px;
+  border-radius: 1.425rem;
 }
+
 .btn-hover .btn-circle {
   transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
   position: relative;
@@ -26,101 +45,115 @@ button {
   background: white;
   border-radius: 1.25rem;
 }
+
 .btn-hover .btn-circle .btn-icon {
   transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
   width: fit-content;
   height: fit-content;
-	background: none;
-	position: absolute;
+  background: none;
+  position: absolute;
   top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   margin: auto;
-	color: #0AB3A3;
+  color: #0AB3A3;
 }
+
 .btn-hover .btn-text {
-  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1); 
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
   position: absolute;
   top: 0;
   right: 0;
-	bottom: 0;
-	left: 25px;
-	display: none;
+  bottom: 0;
+  left: 25px;
+  display: none;
   padding: 0.75rem 0;
   color: white;
   line-height: 1.6;
   text-align: center;
-	text-transform: uppercase;
-	font-size: .7rem;
-	font-weight: 700;
-	border-top-right-radius: 1.425rem;;
-  border-bottom-right-radius: 1.425rem;;
+  text-transform: uppercase;
+  font-size: .7rem;
+  font-weight: 700;
+  border-top-right-radius: 1.425rem;
+  border-bottom-right-radius: 1.425rem;
 }
-.btn-hover:hover{
-	background-color: #0AB3A3;
-	transition: all 0.2s cubic-bezier(0.65, 0, 0.076, 1); 
+
+.btn-hover:hover {
+  background-color: #0AB3A3;
+  transition: all 0.2s cubic-bezier(0.65, 0, 0.076, 1);
 }
+
 .btn-hover:hover .btn-circle {
-	background-color: #0AB3A3;
+  background-color: #0AB3A3;
 }
-.btn-hover:hover .btn-circle .btn-icon i{
-	color: #fff;
+
+.btn-hover:hover .btn-circle .btn-icon i {
+  color: #fff;
 }
+
 .btn-hover:hover .btn-text {
-	display: block;
-	color: #fff;
-	transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-}
-.btn-custom{
-	background-color: transparent;
-	color: black;
-	margin-top: auto;
-	border: 1px solid #A5A5A5;
-	font-size: .8rem;
-	border-radius: 0;
-	transition: all ease-in-out .1s;
-}
-.btn-custom:not(:disabled):hover{
-	background-color: #0AB3A3;
-	border-color: #0AB3A3;
-	color: white;
-	transition: all ease-in-out .1s;
-}
-.btn-custom:disabled{
-	cursor: default;
-	color: #A5A5A5;
-}
-.btn-custom:disabled:hover{
-	color: #A5A5A5;
-	background-color: transparent;
-}
-.btn-constant{
-	font-weight: bold;
-	font-size: .7rem;
-	font-family: inherit;
-}
-.btn-constant:hover .btn-text{
-	color: #0AB3A3;
-	outline: none;
-	background-color: transparent;
-}
-/*  Remove buttons */
-.remove-btn{
-  width: auto;
-  height: auto;
-	color: #A5A5A5;
-	font-family: "Forkawesome";
-}
-.remove-btn::after{
   display: block;
+  color: #fff;
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
 }
-.remove-btn:hover{
+
+.btn-custom {
+  background-color: transparent;
+  color: black;
+  margin-top: auto;
+  border: 1px solid #A5A5A5;
+  font-size: .8rem;
+  border-radius: 0;
+  transition: all ease-in-out .1s;
+  flex: 0 0 auto;
+  width: 50%;
+}
+
+.btn-custom:not(:disabled):hover {
+  background-color: #0AB3A3;
+  border-color: #0AB3A3;
+  color: white;
+  transition: all ease-in-out .1s;
+}
+
+.btn-custom:disabled {
+  cursor: default;
+  color: #A5A5A5;
+}
+
+.btn-custom:disabled:hover {
+  color: #A5A5A5;
   background-color: transparent;
 }
-.remove-btn.wishlist::after{
+
+.btn-constant {
+  font-weight: bold;
+  font-size: .8rem;
+  font-family: inherit;
+}
+
+
+/*  Remove buttons */
+.remove-btn {
+  width: auto;
+  height: auto;
+  color: #A5A5A5;
+  font-family: "Forkawesome";
+}
+
+.remove-btn::after {
+  display: block;
+}
+
+.remove-btn:hover {
+  background-color: transparent;
+}
+
+.remove-btn.wishlist::after {
   content: "\f00d";
 }
-.remove-btn.cart::after{
-	content: "\f014";
+
+.remove-btn.cart::after {
+  content: "\f014";
 }
