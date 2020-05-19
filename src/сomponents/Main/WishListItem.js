@@ -1,24 +1,25 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 import Buttons from '../../common/Buttons, Inputs/Buttons';
 
-const WishListItem = ({id, title, image, author, price, stock}) => {
-  const OutOfStock = (num) => (num === 0) ? true : false
+const WishListItem = ({ id, title, image, author, price, stock }) => {
 
-  return(
+  const OutOfStock = num => (num === 0) ? true : false
+
+  return (
     <Row className="no-gutters py-2">
       <Col xs={1} className="d-flex align-items-center">
         <Buttons.RemoveFromWishListBtn 
           id={id}
         />
       </Col>
-      <Col xs={1} md={2} className="d-flex align-items-center">
+      <Col xs={1} md={1} className="d-flex align-items-center">
         <Image src={image} className="table-img"/>
       </Col>
-      <Col xs={4} md={9}>
+      <Col xs={4} md={4}>
         <h6 className="font-weight-bold ml-2 table-title">
           <Link to={{ pathname: `/react-bookstore/book/${id}/${title}`, id: id }}>
             {title}
